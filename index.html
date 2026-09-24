@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>حسام</title>
+  <title>حسام ابنر | HesamAbner</title>
+  <!-- فونت وزیرمتن برای ظاهر بسیار شیک‌تر -->
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       min-height: 100vh;
@@ -12,63 +18,181 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: #1a1a2e;
-      font-family: Tahoma, sans-serif;
+      background: #0f172a;
+      font-family: 'Vazirmatn', sans-serif;
       color: #fff;
-    }
-    h1 { margin-bottom: 4px; }
-    p { margin-top: 0; color: #aaa; }
-    a.btn {
-      display: block;
-      width: 260px;
       padding: 20px;
-      margin: 8px 0;
+    }
+
+    /* کارت اصلی شیشه‌ای */
+    .container {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      width: 100%;
+      max-width: 380px;
       text-align: center;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    img.avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #38bdf8;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin: 12px 0 4px;
+    }
+
+    p.subtitle {
+      margin-top: 0;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* تب‌های ناوبری (لینک‌ها / درباره من) */
+    .nav-tabs {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+      background: #0f172a;
+      padding: 4px;
+      border-radius: 12px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 8px 0;
+      border: none;
+      background: transparent;
+      color: #94a3b8;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn.active {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    /* محتوای تب‌ها */
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* استایل دکمه‌ها */
+    a.btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
       text-decoration: none;
       color: #fff;
-      background: #16213e;
-      border: 1px solid #0f3460;
+      background: #334155;
+      border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 12px;
-      transition: transform 0.15s ease, background 0.2s ease;
+      font-weight: bold;
+      transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
     }
+
     a.btn:hover {
-    img.avatar {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #0f3460;
-  margin-bottom: 12px;
-}
-      background: #0f3460;
+      background: #0284c7;
+      box-shadow: 0 0 12px rgba(2, 132, 199, 0.5);
+    }
+
+    /* بخش درباره من */
+    .bio-card {
+      text-align: right;
+      background: rgba(15, 23, 42, 0.6);
+      padding: 15px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #cbd5e1;
+    }
+
+    .bio-card strong {
+      color: #38bdf8;
     }
   </style>
 </head>
 <body>
-<img class="avatar" src="gaming_logo_under_1mb.jpg" alt="حسام" style="width:70px; height:70px; border-radius:50%; object-fit:cover; border:3px solid #0f3460; margin-bottom:12px;">
-  <h1>HesamAbner|حسام ابنر</h1>
-  <p>:لینک‌های من</p>
 
-  <a class="btn rubika" href="https://web.rubika.ir/#c=c0Dwp270859196590239bc887e8cf547">روبیکا</a>
-  <a class="btn kick" href="https://kick.com/HesamAbner_KICK">کیک</a>
-  <a class="btn github" href="https://github.com/HesamAbner">گیت هاب</a>
-  <a class="btn aparat" href="https://www.aparat.com/Hesamabner">آپارات</a>
-  <a class="btn twitch" href="https://www.twitch.tv/HesamAbner_TWITCH">توییچ</a>
-  <a class="btn donate" href="https://reymit.ir/hesamabner">حمایت (دونیت)</a>
+  <div class="container">
+    <img class="avatar" src="gaming_logo_under_1mb.jpg" alt="حسام">
+    <h1>HesamAbner | حسام ابنر</h1>
+    <p class="subtitle">استریمر، تولیدکننده محتوا و گیمر</p>
+
+    <!-- دکمه‌های سوئیچ بین لینک‌ها و اطلاعات -->
+    <div class="nav-tabs">
+      <button class="tab-btn active" onclick="switchTab('links')">لینک‌ها</button>
+      <button class="tab-btn" onclick="switchTab('bio')">درباره من</button>
+    </div>
+
+    <!-- تب لینک‌ها -->
+    <div id="tab-links" class="tab-content active">
+      <a class="btn" href="https://web.rubika.ir/#c=c0Dwp270859196590239bc887e8cf547">روبیکا</a>
+      <a class="btn" href="https://kick.com/HesamAbner_KICK">کیک (Kick)</a>
+      <a class="btn" href="https://github.com/HesamAbner">گیت‌هاب</a>
+      <a class="btn" href="https://www.aparat.com/Hesamabner">آپارات</a>
+      <a class="btn" href="https://www.twitch.tv/HesamAbner_TWITCH">توییچ</a>
+      <a class="btn" href="https://reymit.ir/hesamabner" style="background: #10b981;">حمایت مالی (دونیت)</a>
+    </div>
+
+    <!-- تب بیوگرافی (Information) -->
+    <div id="tab-bio" class="tab-content">
+      <div class="bio-card">
+        <p>👋 سلام! من <strong>حسام</strong> هستم.</p>
+        <p>🎮 علاقه زیادی به گیمینگ، استریم و دنیای تکنولوژی دارم. توی کانالم محتوای گیمینگ و برنامه‌نویسی به اشتراک می‌گذارم.</p>
+        <p>📌 <strong>زمینه فعالیت:</strong> استریم / برنامه‌نویسی / ساخت ویدیو</p>
+        <p>🌐 <strong>هدف:</strong> ساخت یک جامعه صمیمی از گیمرها و علاقه‌مندان به تکنولوژی.</p>
+      </div>
+    </div>
+  </div>
 
   <script>
+    // افکت 3D دکمه‌ها
     document.querySelectorAll('a.btn').forEach(function (btn) {
       btn.addEventListener('mousemove', function (e) {
         var r = btn.getBoundingClientRect();
         var x = (e.clientX - r.left) / r.width - 0.5;
         var y = (e.clientY - r.top) / r.height - 0.5;
-        btn.style.transform =
-          'perspective(500px) rotateX(' + (-y * 30) + 'deg) rotateY(' + (x * 30) + 'deg) scale(1.05)';
+        btn.style.transform = 'perspective(500px) rotateX(' + (-y * 25) + 'deg) rotateY(' + (x * 25) + 'deg) scale(1.03)';
       });
       btn.addEventListener('mouseleave', function () {
         btn.style.transform = '';
       });
     });
+
+    // مدیریت سوئیچ بین تب‌ها
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+
+      if (tabName === 'links') {
+        document.getElementById('tab-links').classList.add('active');
+        event.target.classList.add('active');
+      } else {
+        document.getElementById('tab-bio').classList.add('active');
+        event.target.classList.add('active');
+      }
+    }
   </script>
 </body>
 </html>
