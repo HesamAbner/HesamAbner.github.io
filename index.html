@@ -33,13 +33,30 @@
     a.btn {
   transition: transform 0.2s ease, background 0.2s ease;
 }
+a.btn {
+  transition: transform 0.15s ease, background 0.2s ease;
+}
 a.btn:hover {
   background: #0f3460;
-  transform: rotate(-3deg) scale(1.05);
+}
 }
   </style>
 </head>
 <body>
+  <script>
+  document.querySelectorAll('a.btn').forEach(function (btn) {
+    btn.addEventListener('mousemove', function (e) {
+      var r = btn.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      btn.style.transform =
+        'perspective(500px) rotateX(' + (-y * 30) + 'deg) rotateY(' + (x * 30) + 'deg) scale(1.05)';
+    });
+    btn.addEventListener('mouseleave', function () {
+      btn.style.transform = '';
+    });
+  });
+</script>
   <h1>HesamAbner|حسام ابنر</h1>
   <p>:لینک‌های من</p>
 
