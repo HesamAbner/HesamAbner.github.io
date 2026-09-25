@@ -2,273 +2,834 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HesamAbner | حسام ابنر</title>
-  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حسام ابنر | HesamAbner - Bio & Links Portal</title>
   
+  <!-- Font Vazirmatn & FontAwesome Icons -->
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            vazir: ['Vazirmatn', 'sans-serif'],
+          },
+          colors: {
+            neonCyan: '#00f0ff',
+            neonPurple: '#a855f7',
+            neonPink: '#ec4899',
+            darkBg: '#080c14',
+            cardBg: 'rgba(15, 23, 42, 0.75)',
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'glow-spin': 'spin 12s linear infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-8px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    * { box-sizing: border-box; }
     body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: #090d16;
       font-family: 'Vazirmatn', sans-serif;
-      color: #fff;
-      padding: 20px;
+      background-color: #060911;
+      color: #f3f4f6;
+      overflow-x: hidden;
+      min-height: 100vh;
     }
 
-    .container {
-      background: rgba(22, 30, 46, 0.8);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 24px;
-      padding: 28px;
-      width: 100%;
-      max-width: 420px;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
     }
-
-    img.avatar {
-      width: 95px;
-      height: 95px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #38bdf8;
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    ::-webkit-scrollbar-track {
+      background: #080c14;
     }
-
-    h1 { font-size: 1.5rem; margin: 12px 0 2px; }
-    p.subtitle { margin-top: 0; color: #94a3b8; font-size: 0.9rem; }
-
-    /* بنر استریم */
-    .stream-schedule {
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(129, 140, 248, 0.15));
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 14px;
-      padding: 12px 16px;
-      margin: 16px 0;
-      font-size: 0.88rem;
-    }
-
-    .stream-schedule .live-tag {
-      display: inline-block;
-      background: #ef4444;
-      color: #fff;
-      font-size: 0.75rem;
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-weight: bold;
-      margin-bottom: 4px;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% { opacity: 1; }
-      50% { opacity: 0.5; }
-      100% { opacity: 1; }
-    }
-
-    /* تب‌ها */
-    .nav-tabs {
-      display: flex;
-      gap: 6px;
-      margin: 18px 0;
-      background: #0f172a;
-      padding: 4px;
-      border-radius: 12px;
-    }
-
-    .tab-btn {
-      flex: 1;
-      padding: 8px 0;
-      border: none;
-      background: transparent;
-      color: #94a3b8;
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: inherit;
-      font-weight: bold;
-      font-size: 0.85rem;
-      transition: all 0.2s ease;
-    }
-
-    .tab-btn.active {
-      background: #38bdf8;
-      color: #0f172a;
-    }
-
-    .tab-content { display: none; }
-    .tab-content.active { display: block; }
-
-    /* لینک‌ها */
-    a.btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      padding: 13px;
-      margin: 8px 0;
-      text-decoration: none;
-      color: #fff;
+    ::-webkit-scrollbar-thumb {
       background: #1e293b;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      font-weight: bold;
-      font-size: 0.95rem;
-      transition: all 0.2s ease;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #38bdf8;
     }
 
-    a.btn:hover {
-      background: #0284c7;
-      transform: translateY(-2px);
-    }
-
-    /* کارت اطلاعات و سیستم */
-    .info-card {
-      text-align: right;
-      background: rgba(15, 23, 42, 0.6);
-      padding: 16px;
-      border-radius: 12px;
-      font-size: 0.9rem;
-      line-height: 1.8;
-      color: #cbd5e1;
-    }
-
-    .info-card strong { color: #38bdf8; }
-
-    /* کارت آمارهای زنده */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-
-    .stat-box {
-      background: rgba(15, 23, 42, 0.8);
+    /* Glassmorphism Styles */
+    .glass-card {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 12px;
-      border-radius: 12px;
-      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 0 1px rgba(255, 255, 255, 0.1);
     }
 
-    .stat-box .number {
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: #38bdf8;
+    .glass-btn {
+      background: rgba(30, 41, 59, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .stat-box .label {
-      font-size: 0.75rem;
-      color: #94a3b8;
+    .glass-btn:hover {
+      border-color: rgba(56, 189, 248, 0.5);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+    }
+
+    /* Background Neon Glow Spheres */
+    .glow-orb-1 {
+      position: fixed;
+      top: 15%;
+      left: 10%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, rgba(0,0,0,0) 70%);
+      filter: blur(40px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow-orb-2 {
+      position: fixed;
+      bottom: 15%;
+      right: 10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(0,0,0,0) 70%);
+      filter: blur(50px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Canvas Particle Overlay */
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Brand Button Custom Hover Styles */
+    .brand-rubika:hover { background: linear-gradient(135deg, rgba(138,43,226,0.3), rgba(75,0,130,0.4)); border-color: #9333ea; }
+    .brand-kick:hover { background: linear-gradient(135deg, rgba(83,252,24,0.25), rgba(0,128,0,0.3)); border-color: #53fc18; }
+    .brand-github:hover { background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(30,41,59,0.5)); border-color: #e2e8f0; }
+    .brand-aparat:hover { background: linear-gradient(135deg, rgba(237,28,36,0.25), rgba(150,0,0,0.3)); border-color: #ed1c24; }
+    .brand-twitch:hover { background: linear-gradient(135deg, rgba(145,70,255,0.3), rgba(88,28,135,0.4)); border-color: #9146ff; }
+    .brand-donate:hover { background: linear-gradient(135deg, rgba(16,185,129,0.3), rgba(4,120,87,0.4)); border-color: #10b981; }
+    .brand-instagram:hover { background: linear-gradient(135deg, rgba(225,48,108,0.3), rgba(131,58,180,0.4)); border-color: #e1306c; }
+    .brand-x:hover { background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(15,23,42,0.6)); border-color: #38bdf8; }
+    .brand-threads:hover { background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(30,41,59,0.6)); border-color: #cbd5e1; }
+
+    .toast-msg {
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    .toast-msg.show {
+      transform: translateY(0);
+      opacity: 1;
     }
   </style>
 </head>
-<body>
+<body class="flex flex-col items-center justify-start py-8 px-4 sm:px-6 relative selection:bg-cyan-500 selection:text-black">
 
-  <div class="container">
-    <img class="avatar" src="gaming_logo_under_1mb.jpg" alt="حسام">
-    <h1>HesamAbner | حسام ابنر</h1>
-    <p class="subtitle">استریمر و گیمر</p>
+  <!-- Ambient Background Glows -->
+  <div class="glow-orb-1"></div>
+  <div class="glow-orb-2"></div>
 
-    <!-- اطلاعیه زمان استریم -->
-    <div class="stream-schedule">
-      <span class="live-tag">برنامه استریم</span>
-      <div>📅 <strong>جمعه‌ها صبح (ساعت ۹:۰۰ تا ۱۱:۰۰)</strong></div>
-    </div>
+  <!-- Interactive Particle Canvas -->
+  <canvas id="particles-canvas"></canvas>
 
-    <!-- تب‌های اصلی -->
-    <div class="nav-tabs">
-      <button class="tab-btn active" onclick="switchTab('links')">لینک‌ها</button>
-      <button class="tab-btn" onclick="switchTab('setup')">سیستم من</button>
-      <button class="tab-btn" onclick="switchTab('bio')">درباره من</button>
-    </div>
+  <!-- Quick Controls Bar (Top Left) -->
+  <div class="fixed top-4 left-4 z-50 flex items-center gap-2">
+    <!-- Sound Effect Toggle -->
+    <button id="soundToggle" onclick="toggleAudio()" class="glass-card p-3 rounded-xl text-slate-300 hover:text-cyan-400 hover:scale-105 transition-all text-sm flex items-center gap-2" title="تغییر وضعیت صدا">
+      <i class="fa-solid fa-volume-xmark" id="soundIcon"></i>
+      <span class="hidden sm:inline text-xs font-medium" id="soundLabel">صدا خاموش</span>
+    </button>
+    
+    <!-- Share Profile Link -->
+    <button onclick="copyProfileLink()" class="glass-card p-3 rounded-xl text-slate-300 hover:text-cyan-400 hover:scale-105 transition-all text-sm flex items-center gap-2" title="اشتراک‌گذاری پروفایل">
+      <i class="fa-solid fa-share-nodes"></i>
+    </button>
+  </div>
 
-    <!-- تب لینک‌ها -->
-    <div id="tab-links" class="tab-content active">
-      <!-- آمار زنده آپارات -->
-      <div class="stats-grid">
-        <div class="stat-box">
-          <div class="number" id="aparat-followers">در حال دریافت...</div>
-          <div class="label">فالوورهای آپارات</div>
+  <!-- Main Portal Container -->
+  <main class="relative z-10 w-full max-w-xl my-auto">
+
+    <!-- Profile Card Wrapper -->
+    <div class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden transition-all duration-300">
+      
+      <!-- Top Decorative Banner -->
+      <div class="absolute top-0 left-0 right-0 h-28 bg-gradient-to-r from-cyan-600/20 via-purple-600/30 to-pink-600/20 rounded-t-3xl border-b border-white/5"></div>
+      
+      <!-- Avatar Section -->
+      <div class="relative flex flex-col items-center text-center mt-6">
+        
+        <!-- Avatar Holder -->
+        <div class="relative group cursor-pointer" onclick="openBioModal()">
+          <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 blur-md opacity-75 group-hover:opacity-100 transition duration-500 group-hover:scale-105"></div>
+          
+          <img 
+            id="avatarImg"
+            class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-slate-900 shadow-2xl transition duration-300 group-hover:scale-105" 
+            src="gaming_logo_under_1mb.jpg" 
+            alt="حسام ابنر"
+            onerror="this.onerror=null; this.src='https://placehold.co/150x150/0f172a/00f0ff?text=HesamAbner';"
+          />
+
+          <!-- Edit Profile Overlay Icon -->
+          <div class="absolute inset-0 rounded-full bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition-opacity duration-300">
+            <i class="fa-solid fa-pen-to-square text-lg"></i>
+          </div>
+
+          <!-- Streaming Live Indicator Badge -->
+          <div class="absolute bottom-1 right-1 bg-slate-900/90 border border-emerald-500/50 px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-lg">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span class="text-[10px] font-bold text-emerald-400 tracking-wider">ONLINE</span>
+          </div>
         </div>
-        <div class="stat-box">
-          <div class="number">جمعه‌ها 9:00</div>
-          <div class="label">زمان استریم بعدی</div>
+
+        <!-- Title & Username -->
+        <h1 class="mt-4 text-2xl sm:text-3xl font-black text-white tracking-wide flex items-center justify-center gap-2">
+          <span>حسام ابنر</span>
+          <span class="text-cyan-400 font-sans text-xl font-bold">| HesamAbner</span>
+          <i class="fa-solid fa-circle-check text-cyan-400 text-lg" title="تایید شده"></i>
+        </h1>
+
+        <p class="text-slate-400 text-xs sm:text-sm mt-1.5 font-medium leading-relaxed max-w-md" id="bioSubtitle">
+          🎮 استریمر گیمینگ | 💻 برنامه‌نویس | 🎥 تولیدکننده محتوا در یوتیوب و آپارات
+        </p>
+
+        <!-- Quick Stat Highlights Badge Bar -->
+        <div class="grid grid-cols-3 gap-2 sm:gap-3 w-full mt-6">
+          <div class="glass-btn p-2.5 rounded-2xl flex flex-col items-center justify-center">
+            <span class="text-xs text-slate-400 flex items-center gap-1"><i class="fa-solid fa-users text-cyan-400"></i> فالوورها</span>
+            <span class="text-sm sm:text-base font-extrabold text-white mt-0.5" id="statFollowers">+12.5K</span>
+          </div>
+          <div class="glass-btn p-2.5 rounded-2xl flex flex-col items-center justify-center">
+            <span class="text-xs text-slate-400 flex items-center gap-1"><i class="fa-solid fa-headset text-purple-400"></i> ساعت استریم</span>
+            <span class="text-sm sm:text-base font-extrabold text-white mt-0.5" id="statHours">+850</span>
+          </div>
+          <div class="glass-btn p-2.5 rounded-2xl flex flex-col items-center justify-center">
+            <span class="text-xs text-slate-400 flex items-center gap-1"><i class="fa-solid fa-gamepad text-pink-400"></i> گیم‌های اصلی</span>
+            <span class="text-sm sm:text-base font-extrabold text-white mt-0.5" id="statGames">GTA V / R6</span>
+          </div>
+        </div>
+
+        <!-- Tab Navigation Switcher -->
+        <div class="flex items-center justify-between w-full p-1.5 mt-6 bg-slate-950/80 rounded-2xl border border-white/5">
+          <button id="tabBtnLinks" onclick="switchTab('links')" class="flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 text-slate-900 bg-cyan-400 shadow-lg shadow-cyan-400/20 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-link"></i>
+            <span>لینک‌ها</span>
+          </button>
+          <button id="tabBtnBio" onclick="switchTab('bio')" class="flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 text-slate-400 hover:text-white flex items-center justify-center gap-2">
+            <i class="fa-solid fa-user-astronaut"></i>
+            <span>درباره من</span>
+          </button>
+          <button id="tabBtnSetup" onclick="switchTab('setup')" class="flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 text-slate-400 hover:text-white flex items-center justify-center gap-2">
+            <i class="fa-solid fa-desktop"></i>
+            <span>سیستم و آمار</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- TAB 1: SOCIAL LINKS CONTENT -->
+      <div id="tabContentLinks" class="mt-6 space-y-3">
+        
+        <!-- Search Links Bar -->
+        <div class="relative mb-4">
+          <i class="fa-solid fa-magnifying-glass absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+          <input 
+            type="text" 
+            id="linkSearchInput"
+            oninput="filterLinks()"
+            placeholder="جستجو در شبکه‌های اجتماعی..." 
+            class="w-full bg-slate-950/60 border border-white/10 rounded-xl pr-9 pl-4 py-2 text-xs sm:text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500/50 transition-colors"
+          />
+        </div>
+
+        <!-- Social Buttons Container -->
+        <div id="linksContainer" class="space-y-2.5">
+          
+          <!-- Donate / Reymit (Featured) -->
+          <a class="social-btn brand-donate glass-btn p-3.5 rounded-2xl flex items-center justify-between group" href="https://reymit.ir/hesamabner" target="_blank" data-name="حمایت دونیت ریمیت">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg border border-emerald-500/30 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <div class="text-right">
+                <div class="text-sm font-extrabold text-white flex items-center gap-2">
+                  حمایت مالی (دونیت)
+                  <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-500/30">ویژه</span>
+                </div>
+                <div class="text-[11px] text-slate-400">پشتیبانی از دونیت ریالی و ارتقای استریم</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-arrow-left text-slate-500 group-hover:text-emerald-400 group-hover:-translate-x-1 transition-all"></i>
+          </a>
+
+          <!-- Instagram -->
+          <a class="social-btn brand-instagram glass-btn p-3.5 rounded-2xl flex items-center justify-between group" href="https://instagram.com/hesamabner" target="_blank" data-name="اینستاگرام instagram">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center text-lg border border-pink-500/30 group-hover:scale-110 transition-transform">
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div class="text-right">
+                <div class="text-sm font-bold text-white">اینستاگرام (Instagram)</div>
+                <div class="text-[11px] text-slate-400">عکس‌ها، استوری‌ها و ریلزهای روزمره</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-arrow-left text-slate-500 group-hover:text-pink-400 group-hover:-translate-x-1 transition-all"></i>
+          </a>
+
+          <!-- Kick -->
+          <a class="social-btn brand-kick glass-btn p-3.5 rounded-2xl flex items-center justify-between group" href="https://kick.com/HesamAbner_KICK" target="_blank" data-name="کیک kick stream">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-lime-500/20 text-lime-400 flex items-center justify-center text-lg border border-lime-500/30 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div class="text-right">
+                <div class="text-sm font-bold text-white">کانال کیک (Kick)</div>
+                <div class="text-[11px] text-slate-400">استریم‌های زنده و گیم‌پلی بدون سانسور</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-arrow-left text-slate-500 group-hover:text-lime-400 group-hover:-translate-x-1 transition-all"></i>
+          </a>
+
+          <!-- Twitch -->
+          <a class="social-btn brand-twitch glass-btn p-3.5 rounded-2xl flex items-center justify-between group" href="https://www.twitch.tv/HesamAbner_TWITCH" target="_blank" data-name="توییچ twitch">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-lg border border-purple-500/30 group-hover:scale-110 transition-transform">
+                <i class="fa-brands fa-twitch"></i>
+              </div>
+              <div class="text-right">
+                <div class="text-sm font-bold text-white">توییچ (Twitch)</div>
+                <div class="text-[11px] text-slate-400">پخش زنده گیمینگ و ری‌اکت</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-arrow-left text-slate-500 group-hover:text-purple-400 group-hover:-translate-x-1 transition-all"></i>
+          </a>
+
+          <!-- Aparat -->
+          <a class="social-btn brand-aparat glass-btn p-3.5 rounded-2xl flex items-center justify-between group" href="https://www.aparat.com/Hesamabner" target="_blank" data-name="آپارات aparat">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center text-lg border border-rose-500/30 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-circle-play"></i>
+              </div>
+              <div class="text-right">
+                <div class="text-sm font-bold text-white">کانال آپارات</div>
+                <div class="text-[11px] text-slate-400">ویدیوهای گیمینگ، آموزش و هایلایت‌ها</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-arrow-left text-slate-500 group-hover:text-rose-400 group-hover:-translate-x-1 transition-all"></i>
+          </a>
+
+          <!-- Rubika -->
+          <a class="social-btn brand-rubika glass-btn p-3.5 rounded-2xl flex items-center justify-between group" href="https://web.rubika.ir/#c=c0Dwp270859196590239bc887e8cf547" target="_blank" data-name="روبیکا rubika">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-purple-600/20 text-purple-300 flex items-center justify-center text-lg border border-purple-500/30 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-paper-plane"></i>
+              </div>
+              <div class="text-right">
+                <div class="text-sm font-bold text-white">کانال روبیکا</div>
+                <div class="text-[11px] text-slate-400">اخبار استریم، زمان‌بندی و اطلاعیه‌ها</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-arrow-left text-slate-500 group-hover:text-purple-300 group-hover:-translate-x-1 transition-all"></i>
+          </a>
+
+          <!-- GitHub -->
+          <a class="social-btn brand-github glass-btn p-3.5 rounded-2xl flex items-center justify-between group" href="https://github.com/HesamAbner" target="_blank" data-name="گیت هاب github">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-slate-700/40 text-slate-200 flex items-center justify-center text-lg border border-slate-500/30 group-hover:scale-110 transition-transform">
+                <i class="fa-brands fa-github"></i>
+              </div>
+              <div class="text-right">
+                <div class="text-sm font-bold text-white">گیت‌هاب (GitHub)</div>
+                <div class="text-[11px] text-slate-400">پروژه‌های برنامه‌نویسی و کدهای آزاد</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-arrow-left text-slate-500 group-hover:text-slate-200 group-hover:-translate-x-1 transition-all"></i>
+          </a>
+
+          <!-- X / Twitter -->
+          <a class="social-btn brand-x glass-btn p-3.5 rounded-2xl flex items-center justify-between group" href="https://x.com/HesamAbner" target="_blank" data-name="ایکس توییتر x twitter">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg border border-cyan-500/30 group-hover:scale-110 transition-transform">
+                <i class="fa-brands fa-x-twitter"></i>
+              </div>
+              <div class="text-right">
+                <div class="text-sm font-bold text-white">ایکس (X / Twitter)</div>
+                <div class="text-[11px] text-slate-400">توئیت‌ها، نظرات و گفتگوهای روزانه</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-arrow-left text-slate-500 group-hover:text-cyan-400 group-hover:-translate-x-1 transition-all"></i>
+          </a>
+
+          <!-- Threads -->
+          <a class="social-btn brand-threads glass-btn p-3.5 rounded-2xl flex items-center justify-between group" href="https://www.threads.net/@hesamabner" target="_blank" data-name="ثردز threads">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-slate-500/20 text-slate-300 flex items-center justify-center text-lg border border-slate-500/30 group-hover:scale-110 transition-transform">
+                <i class="fa-brands fa-threads"></i>
+              </div>
+              <div class="text-right">
+                <div class="text-sm font-bold text-white">ثردز (Threads)</div>
+                <div class="text-[11px] text-slate-400">پست‌های متنی و به اشتراک‌گذاری افکار</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-arrow-left text-slate-500 group-hover:text-slate-200 group-hover:-translate-x-1 transition-all"></i>
+          </a>
+
         </div>
       </div>
 
-      <a class="btn" href="https://www.aparat.com/Hesamabner" style="background: #ea1d5d;">کانال آپارات</a>
-      <a class="btn" href="https://kick.com/HesamAbner_KICK" style="background: #53fc18; color: #000;">کیک (Kick)</a>
-      <a class="btn" href="https://www.twitch.tv/HesamAbner_TWITCH" style="background: #9146ff;">توییچ</a>
-      <a class="btn" href="https://instagram.com/hesamabner">اینستاگرام</a>
-      <a class="btn" href="https://web.rubika.ir/#c=c0Dwp270859196590239bc887e8cf547">روبیکا</a>
-      <a class="btn" href="https://x.com/HesamAbner">ایکس (X)</a>
-      <a class="btn" href="https://www.threads.net/@hesamabner">ثردز (Threads)</a>
-      <a class="btn" href="https://github.com/HesamAbner">گیت‌هاب</a>
-      <a class="btn" href="https://reymit.ir/hesamabner" style="background: #10b981;">حمایت مالی (دونیت)</a>
-    </div>
+      <!-- TAB 2: BIO & STORY CONTENT -->
+      <div id="tabContentBio" class="mt-6 hidden space-y-4">
+        
+        <!-- Bio Introduction Box -->
+        <div class="bg-slate-950/60 rounded-2xl p-4 border border-white/5 space-y-3">
+          <h3 class="text-sm font-bold text-cyan-400 flex items-center gap-2">
+            <i class="fa-solid fa-user-gear"></i>
+            <span>درباره من</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light" id="bioTextFull">
+            سلام! من <strong class="text-white font-bold">حسام (HesamAbner)</strong> هستم. عاشق دنیای گیمینگ، تولید محتوای ویدئویی و برنامه‌نویسی وب.
+            فعالیتم رو با عشق به بازی‌های ویدیویی شروع کردم و الان در پلتفرم‌های مختلف استریم می‌کنم و پروژه‌های نرم‌افزاری می‌سازم.
+          </p>
+        </div>
 
-    <!-- تب سیستم (Setup) -->
-    <div id="tab-setup" class="tab-content">
-      <div class="info-card">
-        <p>🎮 <strong>کارت گرافیک (GPU):</strong> NVIDIA RTX 5050</p>
-        <p>⚡ <strong>پردازنده (CPU):</strong> Intel Core i5 14400</p>
-        <p>🧠 <strong>حافظه رم (RAM):</strong> 16GB DDR5</p>
+        <!-- Skills / Tags Grid -->
+        <div class="bg-slate-950/60 rounded-2xl p-4 border border-white/5">
+          <h3 class="text-sm font-bold text-purple-400 flex items-center gap-2 mb-3">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>تخصص‌ها و علاقه‌مندی‌ها</span>
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-xl text-xs font-medium bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">🎮 Game Streaming</span>
+            <span class="px-3 py-1 rounded-xl text-xs font-medium bg-purple-500/10 text-purple-300 border border-purple-500/20">💻 Web Development</span>
+            <span class="px-3 py-1 rounded-xl text-xs font-medium bg-pink-500/10 text-pink-300 border border-pink-500/20">🎬 Content Creation</span>
+            <span class="px-3 py-1 rounded-xl text-xs font-medium bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">🔥 Rainbow Six Siege</span>
+            <span class="px-3 py-1 rounded-xl text-xs font-medium bg-amber-500/10 text-amber-300 border border-amber-500/20">🚗 GTA Online</span>
+          </div>
+        </div>
+
+        <!-- Interactive Timeline -->
+        <div class="bg-slate-950/60 rounded-2xl p-4 border border-white/5 space-y-3">
+          <h3 class="text-sm font-bold text-pink-400 flex items-center gap-2 mb-1">
+            <i class="fa-solid fa-timeline"></i>
+            <span>مسیر فعالیت</span>
+          </h3>
+          <div class="relative border-r border-slate-800 pr-4 space-y-3 text-xs">
+            <div class="relative">
+              <span class="absolute -right-[21px] top-1 w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+              <div class="font-bold text-white">شروع فعالیت استریم و آپارات</div>
+              <div class="text-slate-400 text-[11px]">ساخت ویدیوهای گیمینگ و پوشش تورنمنت‌ها</div>
+            </div>
+            <div class="relative">
+              <span class="absolute -right-[21px] top-1 w-2.5 h-2.5 rounded-full bg-purple-400"></span>
+              <div class="font-bold text-white">ورود به برنامه‌نویسی و توسعه وب</div>
+              <div class="text-slate-400 text-[11px]">طراحی وب‌سایت‌های مدرن و ابزارهای استریم</div>
+            </div>
+            <div class="relative">
+              <span class="absolute -right-[21px] top-1 w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <div class="font-bold text-white">گسترش در Kick & Twitch</div>
+              <div class="text-slate-400 text-[11px]">ایجاد جامعه صمیمی گیمرها و لایو استریم روزانه</div>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </div>
 
-    <!-- تب درباره من (Bio) -->
-    <div id="tab-bio" class="tab-content">
-      <div class="info-card">
-        <p>👋 سلام! من <strong>حسام</strong> هستم.</p>
-        <p>علاقه زیادی به گیمینگ و استریم دارم. جمعه‌ها صبح دور هم جمع می‌شیم و بازی می‌کنیم!</p>
-        <p>🕹️ <strong>بازی‌های اصلی:</strong></p>
-        <ul>
-          <li>Roblox (روبلاکس)</li>
-          <li>Minecraft (ماینکرافت)</li>
-          <li>Counter-Strike 2 (CS2)</li>
-          <li>EA Sports FC (اف سی)</li>
-        </ul>
+      <!-- TAB 3: SETUP & GAMING STATS CONTENT -->
+      <div id="tabContentSetup" class="mt-6 hidden space-y-4">
+        
+        <!-- Hardware Specs Grid -->
+        <div class="bg-slate-950/60 rounded-2xl p-4 border border-white/5 space-y-3">
+          <h3 class="text-sm font-bold text-emerald-400 flex items-center justify-between">
+            <span class="flex items-center gap-2"><i class="fa-solid fa-microchip"></i> تجهیزات و سیستم گیمینگ</span>
+            <span class="text-[10px] text-slate-500 font-normal">Setup Specs</span>
+          </h3>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <div class="bg-slate-900/80 p-2.5 rounded-xl border border-white/5 flex items-center justify-between">
+              <span class="text-slate-400"><i class="fa-solid fa-cpu text-cyan-400 ml-1"></i> پردازنده (CPU)</span>
+              <span class="font-bold text-slate-200" id="specCpu">Intel Core i7</span>
+            </div>
+            <div class="bg-slate-900/80 p-2.5 rounded-xl border border-white/5 flex items-center justify-between">
+              <span class="text-slate-400"><i class="fa-solid fa-memory text-purple-400 ml-1"></i> کارت گرافیک</span>
+              <span class="font-bold text-slate-200" id="specGpu">NVIDIA RTX 3060</span>
+            </div>
+            <div class="bg-slate-900/80 p-2.5 rounded-xl border border-white/5 flex items-center justify-between">
+              <span class="text-slate-400"><i class="fa-solid fa-server text-pink-400 ml-1"></i> حافظه رم</span>
+              <span class="font-bold text-slate-200" id="specRam">32GB DDR4</span>
+            </div>
+            <div class="bg-slate-900/80 p-2.5 rounded-xl border border-white/5 flex items-center justify-between">
+              <span class="text-slate-400"><i class="fa-solid fa-headphones text-amber-400 ml-1"></i> هدست & میکروفون</span>
+              <span class="font-bold text-slate-200" id="specMic">Razer & HyperX</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Schedule / Stream Times -->
+        <div class="bg-slate-950/60 rounded-2xl p-4 border border-white/5 space-y-2">
+          <h3 class="text-sm font-bold text-amber-400 flex items-center gap-2">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>برنامه زمان‌بندی استریم‌ها</span>
+          </h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            ⏰ شب‌ها از ساعت <strong class="text-cyan-400 font-bold">۲۱:۰۰ الی ۲۴:۰۰</strong> در پلتفرم کیک و توییچ به صورت زنده!
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Footer Copyright & Edit Button -->
+      <div class="mt-8 pt-4 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+        <div class="flex items-center gap-2">
+          <span>طراحی شده برای</span>
+          <strong class="text-slate-300">HesamAbner</strong>
+          <span>© 2026</span>
+        </div>
+        <button onclick="openBioModal()" class="text-cyan-400/80 hover:text-cyan-300 transition-colors flex items-center gap-1.5 text-[11px]">
+          <i class="fa-solid fa-gear"></i>
+          <span>ویرایش اطلاعات سریع</span>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Edit Bio Information Modal -->
+  <div id="bioModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="glass-card bg-slate-900 rounded-3xl p-6 w-full max-w-md space-y-4 border border-white/10 text-right">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-user-pen text-cyan-400"></i>
+          <span>ویرایش اطلاعات شخصی</span>
+        </h3>
+        <button onclick="closeBioModal()" class="text-slate-400 hover:text-white text-lg">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="block text-slate-400 mb-1">عنوان زیر نام (Subtitle)</label>
+          <input type="text" id="inputSubtitle" class="w-full bg-slate-950 border border-white/10 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-cyan-400" />
+        </div>
+        
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-slate-400 mb-1">تعداد فالوورها</label>
+            <input type="text" id="inputFollowers" class="w-full bg-slate-950 border border-white/10 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-cyan-400" />
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">ساعت استریم</label>
+            <input type="text" id="inputHours" class="w-full bg-slate-950 border border-white/10 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-cyan-400" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-slate-400 mb-1">متن کامل بیوگرافی</label>
+          <textarea id="inputBioText" rows="3" class="w-full bg-slate-950 border border-white/10 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-cyan-400"></textarea>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 pt-2">
+        <button onclick="saveBioData()" class="flex-1 bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold py-2.5 rounded-xl transition-all">
+          ذخیره تغییرات
+        </button>
+        <button onclick="closeBioModal()" class="px-4 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold py-2.5 rounded-xl transition-all">
+          انصراف
+        </button>
       </div>
     </div>
   </div>
 
-  <script>
-    // مدیریت سوئیچ تب‌ها
-    function switchTab(tabName) {
-      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  <!-- Toast Notification Bar -->
+  <div id="toast" class="toast-msg fixed bottom-6 bg-slate-900 border border-cyan-500/40 text-cyan-300 px-5 py-3 rounded-2xl shadow-2xl z-50 flex items-center gap-2 text-xs font-bold">
+    <i class="fa-solid fa-circle-check text-base"></i>
+    <span id="toastMsg">لینک صفحه با موفقیت کپی شد!</span>
+  </div>
 
-      document.getElementById('tab-' + tabName).classList.add('active');
-      event.target.classList.add('active');
+  <script>
+    /* ===================================================
+       1. CANVAS PARTICLES ANIMATION
+    =================================================== */
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let particles = [];
+    const particleCount = 35;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     }
 
-    // دریافت خودکار تعداد فالوورهای آپارات از طریق API
-    async function fetchAparatFollowers() {
-      const followerElement = document.getElementById('aparat-followers');
-      try {
-        const response = await fetch('https://www.aparat.com/etc/api/profile/username/Hesamabner');
-        const data = await response.json();
-        
-        if (data && data.profile && data.profile.follower_cnt) {
-          followerElement.innerText = data.profile.follower_cnt.toLocaleString('fa-IR');
-        } else {
-          followerElement.innerText = 'فعال';
-        }
-      } catch (error) {
-        // در صورت عدم دسترسی مرورگر به API آپارات
-        followerElement.innerText = 'آپارات';
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.radius = Math.random() * 2 + 1;
+        this.alpha = Math.random() * 0.5 + 0.2;
+        this.color = Math.random() > 0.5 ? '#00f0ff' : '#a855f7';
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = this.alpha;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
+        ctx.fill();
+        ctx.globalAlpha = 1;
       }
     }
 
-    // اجرای تابع دریافت آمار موقع بارگذاری صفحه
-    fetchAparatFollowers();
+    function initParticles() {
+      resizeCanvas();
+      particles = [];
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+
+        // Connect nearby particles with glowing lines
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = particles[i].color;
+            ctx.globalAlpha = (1 - dist / 120) * 0.15;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+            ctx.globalAlpha = 1;
+          }
+        }
+      }
+      requestAnimationFrame(animateParticles);
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+
+    /* ===================================================
+       2. TAB NAVIGATION SYSTEM
+    =================================================== */
+    function switchTab(tab) {
+      playClickSound();
+      const tabLinks = document.getElementById('tabContentLinks');
+      const tabBio = document.getElementById('tabContentBio');
+      const tabSetup = document.getElementById('tabContentSetup');
+
+      const btnLinks = document.getElementById('tabBtnLinks');
+      const btnBio = document.getElementById('tabBtnBio');
+      const btnSetup = document.getElementById('tabBtnSetup');
+
+      // Hide all
+      tabLinks.classList.add('hidden');
+      tabBio.classList.add('hidden');
+      tabSetup.classList.add('hidden');
+
+      // Reset button styles
+      [btnLinks, btnBio, btnSetup].forEach(b => {
+        b.className = "flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 text-slate-400 hover:text-white flex items-center justify-center gap-2";
+      });
+
+      const activeBtnClass = "flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 text-slate-900 bg-cyan-400 shadow-lg shadow-cyan-400/20 flex items-center justify-center gap-2";
+
+      if (tab === 'links') {
+        tabLinks.classList.remove('hidden');
+        btnLinks.className = activeBtnClass;
+      } else if (tab === 'bio') {
+        tabBio.classList.remove('hidden');
+        btnBio.className = activeBtnClass;
+      } else if (tab === 'setup') {
+        tabSetup.classList.remove('hidden');
+        btnSetup.className = activeBtnClass;
+      }
+    }
+
+    /* ===================================================
+       3. SEARCH / FILTER LINKS
+    =================================================== */
+    function filterLinks() {
+      const query = document.getElementById('linkSearchInput').value.toLowerCase().trim();
+      const buttons = document.querySelectorAll('.social-btn');
+
+      buttons.forEach(btn => {
+        const searchKeywords = btn.getAttribute('data-name').toLowerCase();
+        if (searchKeywords.includes(query)) {
+          btn.style.display = 'flex';
+        } else {
+          btn.style.display = 'none';
+        }
+      });
+    }
+
+    /* ===================================================
+       4. WEB AUDIO AMBIENT & SOUND EFFECTS
+    =================================================== */
+    let audioEnabled = false;
+    let audioCtx = null;
+
+    function toggleAudio() {
+      audioEnabled = !audioEnabled;
+      const soundIcon = document.getElementById('soundIcon');
+      const soundLabel = document.getElementById('soundLabel');
+
+      if (audioEnabled) {
+        soundIcon.className = "fa-solid fa-volume-high text-cyan-400 animate-pulse";
+        soundLabel.innerText = "صدا روشن";
+        playBeep(600, 0.1);
+        showToast("افکت‌های صوتی رابط کاربری فعال شد!");
+      } else {
+        soundIcon.className = "fa-solid fa-volume-xmark";
+        soundLabel.innerText = "صدا خاموش";
+        showToast("صدا خاموش شد.");
+      }
+    }
+
+    function playBeep(freq = 440, typeDuration = 0.08) {
+      if (!audioEnabled) return;
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + typeDuration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + typeDuration);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+
+    function playClickSound() {
+      playBeep(800, 0.05);
+    }
+
+    /* ===================================================
+       5. EDITABLE BIO MODAL & STORAGE
+    =================================================== */
+    function openBioModal() {
+      playClickSound();
+      document.getElementById('inputSubtitle').value = document.getElementById('bioSubtitle').innerText;
+      document.getElementById('inputFollowers').value = document.getElementById('statFollowers').innerText;
+      document.getElementById('inputHours').value = document.getElementById('statHours').innerText;
+      document.getElementById('inputBioText').value = document.getElementById('bioTextFull').innerText;
+
+      const modal = document.getElementById('bioModal');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function closeBioModal() {
+      playClickSound();
+      const modal = document.getElementById('bioModal');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    function saveBioData() {
+      playClickSound();
+      const sub = document.getElementById('inputSubtitle').value;
+      const fol = document.getElementById('inputFollowers').value;
+      const hrs = document.getElementById('inputHours').value;
+      const bio = document.getElementById('inputBioText').value;
+
+      if (sub) document.getElementById('bioSubtitle').innerText = sub;
+      if (fol) document.getElementById('statFollowers').innerText = fol;
+      if (hrs) document.getElementById('statHours').innerText = hrs;
+      if (bio) document.getElementById('bioTextFull').innerText = bio;
+
+      closeBioModal();
+      showToast("اطلاعات شما با موفقیت بروزرسانی شد!");
+    }
+
+    /* ===================================================
+       6. COPY PROFILE LINK & TOAST
+    =================================================== */
+    function copyProfileLink() {
+      playClickSound();
+      const tempInput = document.createElement('input');
+      tempInput.value = window.location.href;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+
+      showToast("لینک صفحه پروفایل شما کپی شد!");
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.innerText = msg;
+
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    /* ===================================================
+       7. ON LOAD INITIALIZATION
+    =================================================== */
+    window.onload = function () {
+      initParticles();
+      animateParticles();
+
+      // Add click sound to social buttons
+      document.querySelectorAll('.social-btn').forEach(btn => {
+        btn.addEventListener('mouseenter', () => playBeep(350, 0.03));
+      });
+    };
   </script>
 </body>
 </html>
