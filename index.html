@@ -158,8 +158,8 @@
   <div class="fixed top-4 left-4 z-50 flex items-center gap-2">
     <!-- Sound Effect Toggle -->
     <button id="soundToggle" onclick="toggleAudio()" class="glass-card p-3 rounded-xl text-slate-300 hover:text-cyan-400 hover:scale-105 transition-all text-sm flex items-center gap-2" title="تغییر وضعیت صدا">
-      <i class="fa-solid fa-volume-xmark" id="soundIcon"></i>
-      <span class="hidden sm:inline text-xs font-medium" id="soundLabel">صدا خاموش</span>
+      <i class="fa-solid fa-volume-high text-cyan-400 animate-pulse" id="soundIcon"></i>
+      <span class="hidden sm:inline text-xs font-medium" id="soundLabel">صدا روشن</span>
     </button>
     
     <!-- Share Profile Link -->
@@ -219,7 +219,7 @@
         </p>
 
         <!-- Quick Stat Highlights Badge Bar -->
-        <div class="grid grid-cols-3 gap-2 sm:gap-3 w-full mt-6">
+        <div class="grid grid-cols-2 gap-2 sm:gap-3 w-full mt-6">
           <div class="glass-btn p-2.5 rounded-2xl flex flex-col items-center justify-center">
             <span class="text-xs text-slate-400 flex items-center gap-1"><i class="fa-solid fa-users text-cyan-400"></i> فالوورها</span>
             <span class="text-sm sm:text-base font-extrabold text-white mt-0.5" id="statFollowers">+12.5K</span>
@@ -227,10 +227,6 @@
           <div class="glass-btn p-2.5 rounded-2xl flex flex-col items-center justify-center">
             <span class="text-xs text-slate-400 flex items-center gap-1"><i class="fa-solid fa-headset text-purple-400"></i> ساعت استریم</span>
             <span class="text-sm sm:text-base font-extrabold text-white mt-0.5" id="statHours">+850</span>
-          </div>
-          <div class="glass-btn p-2.5 rounded-2xl flex flex-col items-center justify-center">
-            <span class="text-xs text-slate-400 flex items-center gap-1"><i class="fa-solid fa-gamepad text-pink-400"></i> گیم‌های اصلی</span>
-            <span class="text-sm sm:text-base font-extrabold text-white mt-0.5" id="statGames">GTA V / R6</span>
           </div>
         </div>
 
@@ -417,6 +413,15 @@
           </p>
         </div>
 
+        <!-- Main Gameplays Box -->
+        <div class="bg-slate-950/60 rounded-2xl p-4 border border-white/5">
+          <h3 class="text-sm font-bold text-pink-400 flex items-center gap-2 mb-2">
+            <i class="fa-solid fa-gamepad"></i>
+            <span>گیم‌پلی‌های اصلی</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 font-bold" id="statGames">GTA V / R6</p>
+        </div>
+
         <!-- Skills / Tags Grid -->
         <div class="bg-slate-950/60 rounded-2xl p-4 border border-white/5">
           <h3 class="text-sm font-bold text-purple-400 flex items-center gap-2 mb-3">
@@ -472,15 +477,15 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
             <div class="bg-slate-900/80 p-2.5 rounded-xl border border-white/5 flex items-center justify-between">
               <span class="text-slate-400"><i class="fa-solid fa-cpu text-cyan-400 ml-1"></i> پردازنده (CPU)</span>
-              <span class="font-bold text-slate-200" id="specCpu">Intel Core i7</span>
+              <span class="font-bold text-slate-200" id="specCpu">Intel Core i5-14400</span>
             </div>
             <div class="bg-slate-900/80 p-2.5 rounded-xl border border-white/5 flex items-center justify-between">
               <span class="text-slate-400"><i class="fa-solid fa-memory text-purple-400 ml-1"></i> کارت گرافیک</span>
-              <span class="font-bold text-slate-200" id="specGpu">NVIDIA RTX 3060</span>
+              <span class="font-bold text-slate-200" id="specGpu">RTX 5050 Dual</span>
             </div>
             <div class="bg-slate-900/80 p-2.5 rounded-xl border border-white/5 flex items-center justify-between">
               <span class="text-slate-400"><i class="fa-solid fa-server text-pink-400 ml-1"></i> حافظه رم</span>
-              <span class="font-bold text-slate-200" id="specRam">32GB DDR4</span>
+              <span class="font-bold text-slate-200" id="specRam">16GB DDR5</span>
             </div>
             <div class="bg-slate-900/80 p-2.5 rounded-xl border border-white/5 flex items-center justify-between">
               <span class="text-slate-400"><i class="fa-solid fa-headphones text-amber-400 ml-1"></i> هدست & میکروفون</span>
@@ -551,6 +556,34 @@
         <div>
           <label class="block text-slate-400 mb-1">متن کامل بیوگرافی</label>
           <textarea id="inputBioText" rows="3" class="w-full bg-slate-950 border border-white/10 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-cyan-400"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-slate-400 mb-1">گیم‌پلی‌های اصلی</label>
+          <input type="text" id="inputGames" class="w-full bg-slate-950 border border-white/10 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-cyan-400" />
+        </div>
+
+        <div class="pt-2 border-t border-white/10">
+          <label class="block text-purple-300 mb-1 font-bold">مشخصات سیستم</label>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-slate-400 mb-1">پردازنده (CPU)</label>
+            <input type="text" id="inputCpu" class="w-full bg-slate-950 border border-white/10 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-cyan-400" />
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">کارت گرافیک</label>
+            <input type="text" id="inputGpu" class="w-full bg-slate-950 border border-white/10 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-cyan-400" />
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">حافظه رم</label>
+            <input type="text" id="inputRam" class="w-full bg-slate-950 border border-white/10 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-cyan-400" />
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">هدست و میکروفون</label>
+            <input type="text" id="inputMic" class="w-full bg-slate-950 border border-white/10 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-cyan-400" />
+          </div>
         </div>
       </div>
 
@@ -713,7 +746,7 @@
     /* ===================================================
        4. WEB AUDIO AMBIENT & SOUND EFFECTS
     =================================================== */
-    let audioEnabled = false;
+    let audioEnabled = true;
     let audioCtx = null;
 
     function toggleAudio() {
@@ -765,6 +798,11 @@
       document.getElementById('inputFollowers').value = document.getElementById('statFollowers').innerText;
       document.getElementById('inputHours').value = document.getElementById('statHours').innerText;
       document.getElementById('inputBioText').value = document.getElementById('bioTextFull').innerText;
+      document.getElementById('inputGames').value = document.getElementById('statGames').innerText;
+      document.getElementById('inputCpu').value = document.getElementById('specCpu').innerText;
+      document.getElementById('inputGpu').value = document.getElementById('specGpu').innerText;
+      document.getElementById('inputRam').value = document.getElementById('specRam').innerText;
+      document.getElementById('inputMic').value = document.getElementById('specMic').innerText;
 
       const modal = document.getElementById('bioModal');
       modal.classList.remove('opacity-0', 'pointer-events-none');
@@ -782,11 +820,21 @@
       const fol = document.getElementById('inputFollowers').value;
       const hrs = document.getElementById('inputHours').value;
       const bio = document.getElementById('inputBioText').value;
+      const games = document.getElementById('inputGames').value;
+      const cpu = document.getElementById('inputCpu').value;
+      const gpu = document.getElementById('inputGpu').value;
+      const ram = document.getElementById('inputRam').value;
+      const mic = document.getElementById('inputMic').value;
 
       if (sub) document.getElementById('bioSubtitle').innerText = sub;
       if (fol) document.getElementById('statFollowers').innerText = fol;
       if (hrs) document.getElementById('statHours').innerText = hrs;
       if (bio) document.getElementById('bioTextFull').innerText = bio;
+      if (games) document.getElementById('statGames').innerText = games;
+      if (cpu) document.getElementById('specCpu').innerText = cpu;
+      if (gpu) document.getElementById('specGpu').innerText = gpu;
+      if (ram) document.getElementById('specRam').innerText = ram;
+      if (mic) document.getElementById('specMic').innerText = mic;
 
       closeBioModal();
       showToast("اطلاعات شما با موفقیت بروزرسانی شد!");
