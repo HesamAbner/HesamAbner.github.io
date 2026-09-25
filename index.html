@@ -133,6 +133,7 @@
     .brand-instagram:hover { background: linear-gradient(135deg, rgba(225,48,108,0.3), rgba(131,58,180,0.4)); border-color: #e1306c; }
     .brand-x:hover { background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(15,23,42,0.6)); border-color: #38bdf8; }
     .brand-threads:hover { background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(30,41,59,0.6)); border-color: #cbd5e1; }
+    .brand-youtube:hover { background: linear-gradient(135deg, rgba(255,0,0,0.25), rgba(120,0,0,0.3)); border-color: #ff0000; }
 
     .toast-msg {
       transform: translateY(100px);
@@ -222,11 +223,11 @@
         <div class="grid grid-cols-2 gap-2 sm:gap-3 w-full mt-6">
           <div class="glass-btn p-2.5 rounded-2xl flex flex-col items-center justify-center">
             <span class="text-xs text-slate-400 flex items-center gap-1"><i class="fa-solid fa-users text-cyan-400"></i> فالوورها</span>
-            <span class="text-sm sm:text-base font-extrabold text-white mt-0.5" id="statFollowers">+12.5K</span>
+            <span class="text-sm sm:text-base font-extrabold text-white mt-0.5" id="statFollowers">125</span>
           </div>
           <div class="glass-btn p-2.5 rounded-2xl flex flex-col items-center justify-center">
             <span class="text-xs text-slate-400 flex items-center gap-1"><i class="fa-solid fa-headset text-purple-400"></i> ساعت استریم</span>
-            <span class="text-sm sm:text-base font-extrabold text-white mt-0.5" id="statHours">+850</span>
+            <span class="text-sm sm:text-base font-extrabold text-white mt-0.5" id="statHours">43</span>
           </div>
         </div>
 
@@ -343,7 +344,7 @@
           <a class="social-btn brand-rubika glass-btn p-3.5 rounded-2xl flex items-center justify-between group" href="https://web.rubika.ir/#c=c0Dwp270859196590239bc887e8cf547" target="_blank" data-name="روبیکا rubika">
             <div class="flex items-center gap-3">
               <div class="w-10 h-10 rounded-xl bg-purple-600/20 text-purple-300 flex items-center justify-center text-lg border border-purple-500/30 group-hover:scale-110 transition-transform">
-                <i class="fa-solid fa-paper-plane"></i>
+                <i class="fa-solid fa-comment-dots"></i>
               </div>
               <div class="text-right">
                 <div class="text-sm font-bold text-white">کانال روبیکا</div>
@@ -395,6 +396,20 @@
             <i class="fa-solid fa-arrow-left text-slate-500 group-hover:text-slate-200 group-hover:-translate-x-1 transition-all"></i>
           </a>
 
+          <!-- YouTube -->
+          <a class="social-btn brand-youtube glass-btn p-3.5 rounded-2xl flex items-center justify-between group" href="https://www.youtube.com/@Hesam-Abner" target="_blank" data-name="یوتیوب youtube">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center text-lg border border-red-500/30 group-hover:scale-110 transition-transform">
+                <i class="fa-brands fa-youtube"></i>
+              </div>
+              <div class="text-right">
+                <div class="text-sm font-bold text-white">یوتیوب (YouTube)</div>
+                <div class="text-[11px] text-slate-400">ویدیوهای گیمینگ و محتوای کامل</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-arrow-left text-slate-500 group-hover:text-red-400 group-hover:-translate-x-1 transition-all"></i>
+          </a>
+
         </div>
       </div>
 
@@ -408,7 +423,7 @@
             <span>درباره من</span>
           </h3>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light" id="bioTextFull">
-            سلام! من <strong class="text-white font-bold">حسام (HesamAbner)</strong> هستم. عاشق دنیای گیمینگ، تولید محتوای ویدئویی و برنامه‌نویسی وب.
+            سلام! من <strong class="text-white font-bold">حسام حمزه‌پور (HesamAbner)</strong> هستم. عاشق دنیای گیمینگ، تولید محتوای ویدئویی و برنامه‌نویسی وب.
             فعالیتم رو با عشق به بازی‌های ویدیویی شروع کردم و الان در پلتفرم‌های مختلف استریم می‌کنم و پروژه‌های نرم‌افزاری می‌سازم.
           </p>
         </div>
@@ -419,7 +434,7 @@
             <i class="fa-solid fa-gamepad"></i>
             <span>گیم‌پلی‌های اصلی</span>
           </h3>
-          <p class="text-xs sm:text-sm text-slate-300 font-bold" id="statGames">GTA V / R6</p>
+          <p class="text-xs sm:text-sm text-slate-300 font-bold" id="statGames">CS2 / FC / ماینکرافت / روبلاکس</p>
         </div>
 
         <!-- Skills / Tags Grid -->
@@ -432,8 +447,6 @@
             <span class="px-3 py-1 rounded-xl text-xs font-medium bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">🎮 Game Streaming</span>
             <span class="px-3 py-1 rounded-xl text-xs font-medium bg-purple-500/10 text-purple-300 border border-purple-500/20">💻 Web Development</span>
             <span class="px-3 py-1 rounded-xl text-xs font-medium bg-pink-500/10 text-pink-300 border border-pink-500/20">🎬 Content Creation</span>
-            <span class="px-3 py-1 rounded-xl text-xs font-medium bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">🔥 Rainbow Six Siege</span>
-            <span class="px-3 py-1 rounded-xl text-xs font-medium bg-amber-500/10 text-amber-300 border border-amber-500/20">🚗 GTA Online</span>
           </div>
         </div>
 
@@ -487,10 +500,6 @@
               <span class="text-slate-400"><i class="fa-solid fa-server text-pink-400 ml-1"></i> حافظه رم</span>
               <span class="font-bold text-slate-200" id="specRam">16GB DDR5</span>
             </div>
-            <div class="bg-slate-900/80 p-2.5 rounded-xl border border-white/5 flex items-center justify-between">
-              <span class="text-slate-400"><i class="fa-solid fa-headphones text-amber-400 ml-1"></i> هدست & میکروفون</span>
-              <span class="font-bold text-slate-200" id="specMic">Razer & HyperX</span>
-            </div>
           </div>
         </div>
 
@@ -502,6 +511,9 @@
           </h3>
           <p class="text-xs text-slate-300 leading-relaxed">
             ⏰ شب‌ها از ساعت <strong class="text-cyan-400 font-bold">۲۱:۰۰ الی ۲۴:۰۰</strong> در پلتفرم کیک و توییچ به صورت زنده!
+          </p>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            🎬 جمعه‌ها از ساعت <strong class="text-rose-400 font-bold">۹:۰۰ الی ۱۲:۰۰</strong> در پلتفرم آپارات!
           </p>
         </div>
 
@@ -579,10 +591,6 @@
           <div>
             <label class="block text-slate-400 mb-1">حافظه رم</label>
             <input type="text" id="inputRam" class="w-full bg-slate-950 border border-white/10 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-cyan-400" />
-          </div>
-          <div>
-            <label class="block text-slate-400 mb-1">هدست و میکروفون</label>
-            <input type="text" id="inputMic" class="w-full bg-slate-950 border border-white/10 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-cyan-400" />
           </div>
         </div>
       </div>
@@ -802,7 +810,6 @@
       document.getElementById('inputCpu').value = document.getElementById('specCpu').innerText;
       document.getElementById('inputGpu').value = document.getElementById('specGpu').innerText;
       document.getElementById('inputRam').value = document.getElementById('specRam').innerText;
-      document.getElementById('inputMic').value = document.getElementById('specMic').innerText;
 
       const modal = document.getElementById('bioModal');
       modal.classList.remove('opacity-0', 'pointer-events-none');
@@ -824,7 +831,6 @@
       const cpu = document.getElementById('inputCpu').value;
       const gpu = document.getElementById('inputGpu').value;
       const ram = document.getElementById('inputRam').value;
-      const mic = document.getElementById('inputMic').value;
 
       if (sub) document.getElementById('bioSubtitle').innerText = sub;
       if (fol) document.getElementById('statFollowers').innerText = fol;
@@ -834,7 +840,6 @@
       if (cpu) document.getElementById('specCpu').innerText = cpu;
       if (gpu) document.getElementById('specGpu').innerText = gpu;
       if (ram) document.getElementById('specRam').innerText = ram;
-      if (mic) document.getElementById('specMic').innerText = mic;
 
       closeBioModal();
       showToast("اطلاعات شما با موفقیت بروزرسانی شد!");
