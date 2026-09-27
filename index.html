@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>حسام ابنر | HesamAbner - Bio & Links Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   
   <!-- Font Vazirmatn & FontAwesome Icons -->
   <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
@@ -49,6 +52,28 @@
       color: #f3f4f6;
       overflow-x: hidden;
       min-height: 100vh;
+    }
+    .mono-tech {
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.02em;
+    }
+    #cursorGlow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.18) 0%, rgba(168, 85, 247, 0.08) 45%, transparent 70%);
+      filter: blur(10px);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    @media (hover: none) {
+      #cursorGlow { display: none; }
     }
 
     /* Custom Scrollbar */
@@ -152,6 +177,9 @@
   <div class="glow-orb-1"></div>
   <div class="glow-orb-2"></div>
 
+  <!-- Cursor Follow Glow -->
+  <div id="cursorGlow"></div>
+
   <!-- Interactive Particle Canvas -->
   <canvas id="particles-canvas"></canvas>
 
@@ -170,7 +198,7 @@
   </div>
 
   <!-- Main Portal Container -->
-  <main class="relative z-10 w-full max-w-xl my-auto">
+  <main class="relative z-10 w-full max-w-3xl my-auto">
 
     <!-- Profile Card Wrapper -->
     <div class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden transition-all duration-300">
@@ -218,11 +246,11 @@
         <div class="grid grid-cols-2 gap-2 sm:gap-3 w-full mt-6">
           <div class="glass-btn p-2.5 rounded-2xl flex flex-col items-center justify-center">
             <span class="text-xs text-slate-400 flex items-center gap-1"><i class="fa-solid fa-users text-cyan-400"></i> فالوورها</span>
-            <span class="text-sm sm:text-base font-extrabold text-white mt-0.5" id="statFollowers">125</span>
+            <span class="text-sm sm:text-base font-extrabold text-white mt-0.5 mono-tech" id="statFollowers">133</span>
           </div>
           <div class="glass-btn p-2.5 rounded-2xl flex flex-col items-center justify-center">
             <span class="text-xs text-slate-400 flex items-center gap-1"><i class="fa-solid fa-headset text-purple-400"></i> ساعت استریم</span>
-            <span class="text-sm sm:text-base font-extrabold text-white mt-0.5" id="statHours">43</span>
+            <span class="text-sm sm:text-base font-extrabold text-white mt-0.5 mono-tech" id="statHours">43</span>
           </div>
         </div>
 
@@ -232,10 +260,10 @@
             <i class="fa-solid fa-link"></i>
             <span>لینک‌ها</span>
           </button>
-          <button id="tabBtnBio" onclick="switchTab('bio')" class="flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 text-slate-400 hover:text-white flex items-center justify-center gap-2">
+          <a href="informatation/" class="flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 text-slate-400 hover:text-white hover:bg-white/5 flex items-center justify-center gap-2">
             <i class="fa-solid fa-user-astronaut"></i>
-            <span>درباره من</span>
-          </button>
+            <span>من کیم؟</span>
+          </a>
           <button id="tabBtnSetup" onclick="switchTab('setup')" class="flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 text-slate-400 hover:text-white flex items-center justify-center gap-2">
             <i class="fa-solid fa-desktop"></i>
             <span>سیستم و آمار</span>
@@ -260,7 +288,7 @@
         </div>
 
         <!-- Social Buttons Container -->
-        <div id="linksContainer" class="space-y-2.5">
+        <div id="linksContainer" class="space-y-2.5 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-2.5">
           
           <!-- Donate / Reymit (Featured) -->
           <a class="social-btn brand-donate glass-btn p-3.5 rounded-2xl flex items-center justify-between group" href="https://reymit.ir/hesamabner" target="_blank" data-name="حمایت دونیت ریمیت">
@@ -409,69 +437,6 @@
       </div>
 
       <!-- TAB 2: BIO & STORY CONTENT -->
-      <div id="tabContentBio" class="mt-6 hidden space-y-4">
-        
-        <!-- Bio Introduction Box -->
-        <div class="bg-slate-950/60 rounded-2xl p-4 border border-white/5 space-y-3">
-          <h3 class="text-sm font-bold text-cyan-400 flex items-center gap-2">
-            <i class="fa-solid fa-user-gear"></i>
-            <span>درباره من</span>
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light" id="bioTextFull">
-            سلام! من <strong class="text-white font-bold">حسام حمزه‌پور (HesamAbner)</strong> هستم. عاشق دنیای گیمینگ، تولید محتوای ویدئویی و برنامه‌نویسی وب.
-            فعالیتم رو با عشق به بازی‌های ویدیویی شروع کردم و الان در پلتفرم‌های مختلف استریم می‌کنم و پروژه‌های نرم‌افزاری می‌سازم.
-          </p>
-        </div>
-
-        <!-- Main Gameplays Box -->
-        <div class="bg-slate-950/60 rounded-2xl p-4 border border-white/5">
-          <h3 class="text-sm font-bold text-pink-400 flex items-center gap-2 mb-2">
-            <i class="fa-solid fa-gamepad"></i>
-            <span>گیم‌پلی‌های اصلی</span>
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-300 font-bold" id="statGames">CS2 / FC / ماینکرافت / روبلاکس</p>
-        </div>
-
-        <!-- Skills / Tags Grid -->
-        <div class="bg-slate-950/60 rounded-2xl p-4 border border-white/5">
-          <h3 class="text-sm font-bold text-purple-400 flex items-center gap-2 mb-3">
-            <i class="fa-solid fa-wand-magic-sparkles"></i>
-            <span>تخصص‌ها و علاقه‌مندی‌ها</span>
-          </h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 rounded-xl text-xs font-medium bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">🎮 Game Streaming</span>
-            <span class="px-3 py-1 rounded-xl text-xs font-medium bg-purple-500/10 text-purple-300 border border-purple-500/20">💻 Web Development</span>
-            <span class="px-3 py-1 rounded-xl text-xs font-medium bg-pink-500/10 text-pink-300 border border-pink-500/20">🎬 Content Creation</span>
-          </div>
-        </div>
-
-        <!-- Interactive Timeline -->
-        <div class="bg-slate-950/60 rounded-2xl p-4 border border-white/5 space-y-3">
-          <h3 class="text-sm font-bold text-pink-400 flex items-center gap-2 mb-1">
-            <i class="fa-solid fa-timeline"></i>
-            <span>مسیر فعالیت</span>
-          </h3>
-          <div class="relative border-r border-slate-800 pr-4 space-y-3 text-xs">
-            <div class="relative">
-              <span class="absolute -right-[21px] top-1 w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
-              <div class="font-bold text-white">شروع فعالیت استریم و آپارات</div>
-              <div class="text-slate-400 text-[11px]">ساخت ویدیوهای گیمینگ و پوشش تورنمنت‌ها</div>
-            </div>
-            <div class="relative">
-              <span class="absolute -right-[21px] top-1 w-2.5 h-2.5 rounded-full bg-purple-400"></span>
-              <div class="font-bold text-white">ورود به برنامه‌نویسی و توسعه وب</div>
-              <div class="text-slate-400 text-[11px]">طراحی وب‌سایت‌های مدرن و ابزارهای استریم</div>
-            </div>
-            <div class="relative">
-              <span class="absolute -right-[21px] top-1 w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-              <div class="font-bold text-white">گسترش در Kick & Twitch</div>
-              <div class="text-slate-400 text-[11px]">ایجاد جامعه صمیمی گیمرها و لایو استریم روزانه</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
       <!-- TAB 3: SETUP & GAMING STATS CONTENT -->
       <div id="tabContentSetup" class="mt-6 hidden space-y-4">
         
@@ -485,15 +450,15 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
             <div class="bg-slate-900/80 p-2.5 rounded-xl border border-white/5 flex items-center justify-between">
               <span class="text-slate-400"><i class="fa-solid fa-cpu text-cyan-400 ml-1"></i> پردازنده (CPU)</span>
-              <span class="font-bold text-slate-200" id="specCpu">Intel Core i5-14400</span>
+              <span class="font-bold text-slate-200 mono-tech" id="specCpu">Intel Core i5-14400</span>
             </div>
             <div class="bg-slate-900/80 p-2.5 rounded-xl border border-white/5 flex items-center justify-between">
               <span class="text-slate-400"><i class="fa-solid fa-memory text-purple-400 ml-1"></i> کارت گرافیک</span>
-              <span class="font-bold text-slate-200" id="specGpu">RTX 5050 Dual</span>
+              <span class="font-bold text-slate-200 mono-tech" id="specGpu">RTX 5050 Dual</span>
             </div>
             <div class="bg-slate-900/80 p-2.5 rounded-xl border border-white/5 flex items-center justify-between">
               <span class="text-slate-400"><i class="fa-solid fa-server text-pink-400 ml-1"></i> حافظه رم</span>
-              <span class="font-bold text-slate-200" id="specRam">16GB DDR5</span>
+              <span class="font-bold text-slate-200 mono-tech" id="specRam">16GB DDR5</span>
             </div>
           </div>
         </div>
@@ -623,20 +588,17 @@
     function switchTab(tab) {
       playClickSound();
       const tabLinks = document.getElementById('tabContentLinks');
-      const tabBio = document.getElementById('tabContentBio');
       const tabSetup = document.getElementById('tabContentSetup');
 
       const btnLinks = document.getElementById('tabBtnLinks');
-      const btnBio = document.getElementById('tabBtnBio');
       const btnSetup = document.getElementById('tabBtnSetup');
 
       // Hide all
       tabLinks.classList.add('hidden');
-      tabBio.classList.add('hidden');
       tabSetup.classList.add('hidden');
 
       // Reset button styles
-      [btnLinks, btnBio, btnSetup].forEach(b => {
+      [btnLinks, btnSetup].forEach(b => {
         b.className = "flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 text-slate-400 hover:text-white flex items-center justify-center gap-2";
       });
 
@@ -645,9 +607,6 @@
       if (tab === 'links') {
         tabLinks.classList.remove('hidden');
         btnLinks.className = activeBtnClass;
-      } else if (tab === 'bio') {
-        tabBio.classList.remove('hidden');
-        btnBio.className = activeBtnClass;
       } else if (tab === 'setup') {
         tabSetup.classList.remove('hidden');
         btnSetup.className = activeBtnClass;
@@ -754,6 +713,19 @@
       document.querySelectorAll('.social-btn').forEach(btn => {
         btn.addEventListener('mouseenter', () => playBeep(350, 0.03));
       });
+
+      // Cursor follow glow
+      const cursorGlow = document.getElementById('cursorGlow');
+      if (cursorGlow) {
+        document.addEventListener('mousemove', (e) => {
+          cursorGlow.style.opacity = '1';
+          cursorGlow.style.left = e.clientX + 'px';
+          cursorGlow.style.top = e.clientY + 'px';
+        });
+        document.addEventListener('mouseleave', () => {
+          cursorGlow.style.opacity = '0';
+        });
+      }
     };
   </script>
 </body>
