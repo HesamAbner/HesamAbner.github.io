@@ -1,1 +1,137 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>درباره من | حسام حمزه‌پور</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: #060911;
+      color: #f3f4f6;
+      min-height: 100vh;
+    }
+    .mono-tech { font-family: 'JetBrains Mono', monospace; letter-spacing: 0.02em; }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .glow-orb-1, .glow-orb-2 {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      z-index: 0;
+      opacity: 0.35;
+    }
+    .glow-orb-1 { width: 320px; height: 320px; background: #22d3ee; top: -80px; right: -80px; }
+    .glow-orb-2 { width: 320px; height: 320px; background: #a855f7; bottom: -100px; left: -100px; }
+  </style>
+</head>
+<body class="flex flex-col items-center py-8 px-4 sm:px-6 relative">
 
+  <div class="glow-orb-1"></div>
+  <div class="glow-orb-2"></div>
+
+  <main class="relative z-10 w-full max-w-2xl space-y-4">
+
+    <a href="../" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 text-sm font-bold mb-2">
+      <i class="fa-solid fa-arrow-right"></i>
+      <span>بازگشت به صفحه اصلی</span>
+    </a>
+
+    <div class="glass-card rounded-3xl p-5 text-center">
+      <img src="../profile.jpg" onerror="this.style.display='none'" alt="حسام" class="w-20 h-20 rounded-full object-cover border-2 border-cyan-400/50 mx-auto mb-3">
+      <h1 class="text-xl font-extrabold text-white">حسام حمزه‌پور</h1>
+      <p class="text-slate-400 text-xs mt-1 mono-tech">HesamAbner</p>
+    </div>
+
+    <!-- Project Acceptance Banner -->
+    <div class="glass-card rounded-3xl p-4 border border-emerald-400/20 bg-emerald-500/5 flex items-center gap-3">
+      <span class="relative flex h-3 w-3 shrink-0">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-400"></span>
+      </span>
+      <div class="flex-1 text-right">
+        <p class="text-sm font-bold text-emerald-300">در حال حاضر پروژه قبول می‌کنم</p>
+        <p class="text-xs text-slate-300 mt-0.5">طراحی سایت و برنامه‌نویسی — از جمله پروژه‌های مبتنی بر هوش مصنوعی</p>
+      </div>
+      <a href="https://instagram.com/hesamabner" target="_blank" class="shrink-0 text-xs font-bold bg-emerald-400 text-slate-950 px-3 py-2 rounded-xl hover:bg-emerald-300 transition-colors">
+        تماس بگیر
+      </a>
+    </div>
+
+    <!-- Bio Introduction -->
+    <div class="glass-card rounded-2xl p-4 space-y-3">
+      <h3 class="text-sm font-bold text-cyan-400 flex items-center gap-2">
+        <i class="fa-solid fa-user-gear"></i>
+        <span>درباره من</span>
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+        سلام! من <strong class="text-white font-bold">حسام حمزه‌پور (HesamAbner)</strong> هستم. عاشق دنیای گیمینگ، تولید محتوای ویدئویی و برنامه‌نویسی وب.
+        فعالیتم رو با عشق به بازی‌های ویدیویی شروع کردم و الان در پلتفرم‌های مختلف استریم می‌کنم و پروژه‌های نرم‌افزاری می‌سازم؛ از طراحی سایت گرفته تا ابزارهایی که با کمک هوش مصنوعی توسعه می‌دم.
+      </p>
+    </div>
+
+    <!-- Main Gameplays -->
+    <div class="glass-card rounded-2xl p-4">
+      <h3 class="text-sm font-bold text-pink-400 flex items-center gap-2 mb-2">
+        <i class="fa-solid fa-gamepad"></i>
+        <span>گیم‌پلی‌های اصلی</span>
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-300 font-bold mono-tech">CS2 / FC / ماینکرافت / روبلاکس</p>
+    </div>
+
+    <!-- Skills -->
+    <div class="glass-card rounded-2xl p-4">
+      <h3 class="text-sm font-bold text-purple-400 flex items-center gap-2 mb-3">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <span>تخصص‌ها و علاقه‌مندی‌ها</span>
+      </h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 rounded-xl text-xs font-medium bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">🎮 Game Streaming</span>
+        <span class="px-3 py-1 rounded-xl text-xs font-medium bg-purple-500/10 text-purple-300 border border-purple-500/20">💻 Web Development</span>
+        <span class="px-3 py-1 rounded-xl text-xs font-medium bg-pink-500/10 text-pink-300 border border-pink-500/20">🎬 Content Creation</span>
+        <span class="px-3 py-1 rounded-xl text-xs font-medium bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">🤖 AI-Assisted Dev</span>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="glass-card rounded-2xl p-4 space-y-3">
+      <h3 class="text-sm font-bold text-pink-400 flex items-center gap-2 mb-1">
+        <i class="fa-solid fa-timeline"></i>
+        <span>مسیر فعالیت</span>
+      </h3>
+      <div class="relative border-r border-slate-800 pr-4 space-y-3 text-xs">
+        <div class="relative">
+          <span class="absolute -right-[21px] top-1 w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+          <div class="font-bold text-white">شروع فعالیت استریم و آپارات</div>
+          <div class="text-slate-400 text-[11px]">ساخت ویدیوهای گیمینگ و پوشش تورنمنت‌ها</div>
+        </div>
+        <div class="relative">
+          <span class="absolute -right-[21px] top-1 w-2.5 h-2.5 rounded-full bg-purple-400"></span>
+          <div class="font-bold text-white">ورود به برنامه‌نویسی و توسعه وب</div>
+          <div class="text-slate-400 text-[11px]">طراحی وب‌سایت‌های مدرن و ابزارهای استریم، گاهی با کمک هوش مصنوعی</div>
+        </div>
+        <div class="relative">
+          <span class="absolute -right-[21px] top-1 w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+          <div class="font-bold text-white">گسترش در Kick & Twitch</div>
+          <div class="text-slate-400 text-[11px]">ایجاد جامعه صمیمی گیمرها و لایو استریم روزانه</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center text-[11px] text-slate-500 pt-2 pb-6">
+      <span>طراحی شده برای</span>
+      <strong class="text-slate-300">HesamAbner</strong>
+      <span>© 2026</span>
+    </div>
+
+  </main>
+</body>
+</html>
